@@ -9,19 +9,19 @@ LemonadeChange
 a função indica se é possível retornar o troco correto ao cliente.
 ====================
 */
-bool LemonadeChange( int* bills, int billsSize );
+bool LemonadeChange ( int* bills, int billsSize );
 
-int main( int argc, char const *argv[] ){
+int main ( int argc, char const *argv[] ){
     int *bills;
     int billsSize;
     bool resul;
     
-    resul = LemonadeChange( bills, billsSize );
+    resul = LemonadeChange ( bills, billsSize );
 
     return 0;
 }
 
-bool LemonadeChange( int* bills, int billsSize ){
+bool LemonadeChange ( int* bills, int billsSize ){
     int cont5=0;
     int cont10=0;
     
