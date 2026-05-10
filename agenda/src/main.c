@@ -8,21 +8,20 @@ void *RemoverPessoa( void *pBuffer );
 void BuscarPessoa( void *pBuffer );
 void ListarPessoas( void *pBuffer );
 
-int main()
-{
+int main() {
 	void *pBuffer;
 
-	pBuffer = malloc( 6 * sizeof( int ) ); //aloca para a escolha no Menu, contador de pessoas, tamannho da memoria
+	pBuffer = malloc( 6 * sizeof( int ) ); //aloca para int de controle
 	pBuffer = realloc( pBuffer, ( 6 * sizeof( int ) ) + ( 50 * sizeof( char ) ) ); //espaço rascunho para as infromações
 	*( int * )( pBuffer ) = 0; //ecolha do Menu
 	*( int * )( pBuffer + sizeof( int ) ) = 0; //contador de pessoas = 0
 	*( int * )( pBuffer + 2 * sizeof( int ) ) = ( 6 * sizeof( int ) ) + ( 50 * sizeof( char ) );  //tamanho total da memoria = bytes dos int + bytes do char + pessoas
 	*( int * )( pBuffer + 3 * sizeof( int ) ) = 0; //int que vai ser usado para o loop, começa onde as informações reais começam, pula os bytes de controle
 	*( int * )( pBuffer + 4 * sizeof( int ) ) = 0; //int que vai ser usado para começar o loop
-	*( int * )( pBuffer + 5 * sizeof( int ) ) = 0; //int que vai ser para calculr o tamanho das informações da pessoa removida
+	*( int * )( pBuffer + 5 * sizeof( int ) ) = 0; //int que vai ser para calcular o tamanho das informações da pessoa removida
 
 	for ( ;; ) {
-		Menu( pBuffer );
+		Menu ( pBuffer );
 		switch ( *( int * )pBuffer ) {
 		case 1:
 			pBuffer = AdicionarPessoa ( pBuffer );
@@ -63,16 +62,16 @@ void Menu ( void *pBuffer ){
 void *AdicionarPessoa ( void *pBuffer ) {
 	printf( "Nome: " );
 	getchar(); //scanf no Menu deixa um \n, limpa o buffer do teclado
-	fgets( ( char * )pBuffer + ( 6 * sizeof( int ) ), 50, stdin );
+	fgets( ( char * )pBuffer + ( 6 * sizeof( int ) ), 50, stdin ); //coloca o nome no espaço de rascunho
 	*( ( char * )pBuffer + ( 6 * sizeof( int ) ) + strcspn( ( char * )pBuffer + ( 6 * sizeof( int ) ), "\n" ) ) = '\0'; //substitui o \n por \0
 
 	pBuffer = realloc( pBuffer, ( *( int * )( pBuffer + 2 * sizeof( int ) ) + ( strlen( ( char * )pBuffer + ( 6 * sizeof( int ) ) ) ) + 1 ) ); //aumenta o espaço de memoria disponivel
 	strcpy( ( char * )pBuffer + *( int * )( pBuffer + 2 * sizeof( int ) ), ( char * )pBuffer + ( 6 * sizeof( int ) ) ); //copia do rascunho para o espaço real
 	*( int * )( pBuffer + 2 * sizeof( int ) ) = ( *( int * )( pBuffer + 2 * sizeof( int ) ) + ( strlen( ( char * )pBuffer + ( 6 * sizeof( int ) ) ) ) + 1 ); //soma o tamanho da informação ao tamanho atual, +1 devido ao \0
 
-	pBuffer = realloc( pBuffer, ( *( int * )( pBuffer + 2 * sizeof( int ) ) ) + sizeof( int ) );
 	printf( "idade: " );
 	scanf( "%d", ( int * )( ( char * )pBuffer + *( int * )( pBuffer + 2 * sizeof( int ) ) ) );
+	pBuffer = realloc( pBuffer, ( *( int * )( pBuffer + 2 * sizeof( int ) ) ) + sizeof( int ) );
 	*( int * )( pBuffer + 2 * sizeof( int ) ) = ( *( int * )( pBuffer + 2 * sizeof( int ) ) + sizeof( int ) ); //atualiza o tamanho
 
 	printf( "Email: " );
@@ -92,9 +91,9 @@ void *AdicionarPessoa ( void *pBuffer ) {
 }
 
 void *RemoverPessoa ( void *pBuffer ) {
-	*( int * )( pBuffer + 3 * sizeof( int ) ) = ( 6 * sizeof( int ) ) + ( 50 * sizeof( char ) );
-	*( int * )( pBuffer + 4 * sizeof( int ) ) = 0;
-	*( int * )( pBuffer + 5 * sizeof( int ) ) = 0;
+	*( int * )( pBuffer + 3 * sizeof( int ) ) = ( 6 * sizeof( int ) ) + ( 50 * sizeof( char ) ); ////int que vai ser usado para o loop, começa onde as informações reais começam, pula os bytes de controle
+	*( int * )( pBuffer + 4 * sizeof( int ) ) = 0; //int que vai ser usado para começar o loop
+	*( int * )( pBuffer + 5 * sizeof( int ) ) = 0; //int que vai ser para calcular o tamanho das informações da pessoa removida
 
 	printf( "Nome: " );
 	getchar(); //scanf no Menu deixa um \n, limpa o buffer do teclado
@@ -114,12 +113,14 @@ void *RemoverPessoa ( void *pBuffer ) {
 			*( int * )( pBuffer + 4 * sizeof( int ) ) = *( int * )( pBuffer + 3 * sizeof( int ) ) + *( int * )( pBuffer + 5 * sizeof( int ) );
 
 			//*(int *)(pBuffer + 4*sizeof(int)) esta no final da informação da pessoa excluida
+			//*(int *)(pBuffer + 2*sizeof(int)) tamanho total da informação
 
+			//passar as informações da pessoa seguinte para o lugar da excluida
 			while ( *( int * )( pBuffer + 4 * sizeof( int ) ) < *( int * )( pBuffer + 2 * sizeof( int ) ) ) {
 				*( ( char * )pBuffer + ( *( int * )( pBuffer + 4 * sizeof( int ) ) - *( int * )( pBuffer + 5 * sizeof( int ) ) ) ) = *( ( char * )pBuffer + *( int * )( pBuffer + 4 * sizeof( int ) ) );
 				//pega o inicio da proxima pessoa e coloca no lugar da excluida
 
-				*( int * )( pBuffer + 4 * sizeof( int ) ) += 1;
+				*( int * )( pBuffer + 4 * sizeof( int ) ) += 1; //anda byte por byte
 			}
 
 			*( int * )( pBuffer + 2 * sizeof( int ) ) -= *( int * )( pBuffer + 5 * sizeof( int ) ); //atualiza o tamanho total

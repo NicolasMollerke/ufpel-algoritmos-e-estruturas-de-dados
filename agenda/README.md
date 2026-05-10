@@ -2,11 +2,13 @@
 
 ## Agenda
 
-### Given an m x n matrix mat, return an array of all the elements of the array in a diagonal order.
-
 ## Relato
 
-### Minha principal dificuldade enfrentada nesse exercício foi entender como os ponteiros tem que avançar para realizar a leitura das informações. Depois de estudar isso, através de vídeos, sites e o uso de Inteligências Artificial, fazer a lógica das funções não foi dificil, tendo em vista que são funções simples e que já trabalhamos em outros momentos.
+### Minha principal dificuldade enfrentada nesse exercício foi entender como os ponteiros tem que avançar para realizar a leitura das informações. Depois de estudar isso, através de vídeos, sites e o uso de Inteligências Artificial para me auxiliar no entendimento, fazer a lógica das funções não foi dificil, tendo em vista que são funções simples e que já trabalhamos em outros momentos.
+
+## Considerações Finais
+
+### Por mais que tenha tido dificuldade de início, depois que entendi a lógica de como funciona foi tranquilo de fazer o resto. Achei que o exercício de forma geral foi bastante benéfico para melhorar meu entendimento de ponteiros.
 
 ## Resultado das funções
 
