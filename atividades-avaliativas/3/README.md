@@ -18,7 +18,7 @@
 
 ## Relato
 
-### Quando abri o exercício já fiquei bem confuso e passe um bom tempo para etender o que eu tinha que fazer e como o exercício funcionava. Fiquei bastante frustrado porque não conseguia pensar na lógica do exercício e quando estava quase acabando o tempo só tinha conseguido fazer a criação da árvore, que também não estava fucnionando direito.
+### Quando abri o exercício já fiquei bem confuso e passe um bom tempo para etender o que eu tinha que fazer e como o exercício funcionava. Fiquei bastante frustrado porque não conseguia pensar na lógica do exercício e quando estava quase acabando o tempo só tinha conseguido fazer a criação da árvore, que também não estava fucnionando direito. Chegando em casa fui atrás de entender o que eu estava fazendo de errado e vi que era um problema bem simples, então sentei para estudar melhor o conteúdo e entendi como funcionava a lógica do exercício. Acredito que meu maior problema foi falta de preparo tendo em vista que tinha feito vários leetcodes de árvore já mas em em sua grande maioria fáceis.
 
 ## Submit do Leetcode em aula
 
