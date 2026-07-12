@@ -26,7 +26,7 @@
 
 ## Submit do Leetcode em casa
 
-<img src="img/">
+<img src="img/Captura de tela 2026-07-12 023739.png">
 
 
 
