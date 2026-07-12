@@ -4,7 +4,6 @@
 #include <stdbool.h>
 
 typedef struct {
-
     int topo;
     int capacidade;
     char *itens;

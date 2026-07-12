@@ -11,7 +11,6 @@ int main ( int argc, char const *argv[] ) {
     free(resul);
 }
 
-
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
@@ -26,7 +25,7 @@ int* findDiagonalOrder ( int** mat, int matSize, int* matColSize, int* returnSiz
     //coluna + linha = pare sobe
     //coluna + linha = impar desce
      
-    while ( p < *returnSize ){
+    while ( p < *returnSize ) {
         if ( (c + l) % 2 == 0 ){ //pares
             if ( (c + 1) == *matColSize ) { //ultima coluna
                 resul[p] = mat[l][c];

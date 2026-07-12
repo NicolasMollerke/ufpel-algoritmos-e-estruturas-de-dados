@@ -14,7 +14,7 @@ int* findDiagonalOrder(int** mat, int matSize, int* matColSize, int* returnSize)
                 p++; 
             }
         }
-    }
+    }P
 
     return resul;
     
