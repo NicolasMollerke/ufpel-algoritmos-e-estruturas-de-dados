@@ -1,20 +1,30 @@
 # Nicolas Fonseca Mollerke - M1
 
+## LeetCode 18 - 4Sum ( Soma de Quatro )
 
-## LeetCode 775 - Inversoes Globais e Locais ( Global and Local Inversions )
-### Use avl na solucao
+### Dado um array nums de n inteiros, retorne um array com todas as quadruplas UNICAS [ nums[a], nums[b], nums[c], nums[d] ] tais que:
 
-### Voce recebe um array de inteiros nums de comprimento n que representa uma permutacao de todos os inteiros no intervalo [0, n - 1].
+### 0 <= a, b, c, d < n
+### a, b, c e d sao distintos
+### nums[a] + nums[b] + nums[c] + nums[d] == target
 
-### O numero de inversoes GLOBAIS e o numero de pares ( i, j ) diferentes onde:
+### Voce pode retornar a resposta em qualquer ordem.
 
-### 0 <= i < j < n  e  nums[i] > nums[j]
+### Exemplo 1:
 
-### O numero de inversoes LOCAIS e o numero de indices i onde:
+### Entrada: nums = [1,0,-1,0,-2,2], target = 0
+### Saida: [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
 
-### 0 <= i < n - 1  e  nums[i] > nums[i + 1]
+### Exemplo 2:
 
-### Retorne true se o numero de inversoes globais for igual ao numero deinversoes locais.
+### Entrada: nums = [2,2,2,2,2], target = 8
+### Saida: [[2,2,2,2]]
+
+### Restricoes:
+
+### 1 <= nums.length <= 200
+### -1^9 <= nums[i] <= 10^9
+### -10^9 <= target <= 10^9
 
 ## Relato
 
